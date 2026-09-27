@@ -11,7 +11,7 @@ public class Ejercicio2Esfera : MonoBehaviour
     
     void Start() {
         // Calcular los valores iniciales
-        CalculoMuestraDatos();
+        ComputeShowingData();
         // Guardar el estado actual como anterior
         previousFirstVector = firstVector;
         previousSecondVector = secondVector;
@@ -19,18 +19,17 @@ public class Ejercicio2Esfera : MonoBehaviour
 
     void Update() {
         // Solo actuar si detecta que se ha modificado algún vector desde el Inspector
-        if (firstVector != previousFirstVector || secondVector != previousSecondVector)
-        {
-            CalculoMuestraDatos();
+        if (firstVector != previousFirstVector || secondVector != previousSecondVector) {
+            ComputeShowingData();
             // Actualizar los valores anteriores para la siguiente comprobación
             previousFirstVector = firstVector;
             previousSecondVector = secondVector;
         }
     }
 
-    void CalculoMuestraDatos() {
-        Debug.Log("First vector: (" + firstVector.x + ", " + firstVector.y + ", " + firstVector.z + ")");
-        Debug.Log("Second vector: (" + secondVector.x + ", " + secondVector.y + ", " + secondVector.z + ")");
+    void ComputeShowingData() {
+        Debug.Log("Primer vector: (" + firstVector.x + ", " + firstVector.y + ", " + firstVector.z + ")");
+        Debug.Log("Segundo vector: (" + secondVector.x + ", " + secondVector.y + ", " + secondVector.z + ")");
         // Mostrar magnitudes
         Debug.Log("Magnitud primer vector: " + firstVector.magnitude);
         Debug.Log("Magnitud segundo vector: " + secondVector.magnitude);
