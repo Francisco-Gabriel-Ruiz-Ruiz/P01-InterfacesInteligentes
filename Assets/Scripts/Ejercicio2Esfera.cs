@@ -4,6 +4,12 @@ public class Ejercicio2Esfera : MonoBehaviour
 {
     public Vector3 firstVector;
     public Vector3 secondVector;
+    // Variables públicas para mostrar los resultados en el Inspector
+    public float magnitudeFirstVector;
+    public float magnitudeSecondVector;
+    public float angleBetweenVectors;
+    public float distanceBetweenVectors;
+    public string heightComparisonMessage;
 
     // Variables privadas para detectar cambios y evitar inundar la consola
     private Vector3 previousFirstVector;
@@ -31,19 +37,26 @@ public class Ejercicio2Esfera : MonoBehaviour
         Debug.Log("Primer vector: (" + firstVector.x + ", " + firstVector.y + ", " + firstVector.z + ")");
         Debug.Log("Segundo vector: (" + secondVector.x + ", " + secondVector.y + ", " + secondVector.z + ")");
         // Mostrar magnitudes
-        Debug.Log("Magnitud primer vector: " + firstVector.magnitude);
-        Debug.Log("Magnitud segundo vector: " + secondVector.magnitude);
+        magnitudeFirstVector = firstVector.magnitude;
+        magnitudeSecondVector = secondVector.magnitude;
+        Debug.Log("Magnitud primer vector: " + magnitudeFirstVector);
+        Debug.Log("Magnitud segundo vector: " + magnitudeSecondVector);
         // Mostrar ángulo que forman
-        Debug.Log("Ángulo from primer vector to segundo vector: " + Vector3.Angle(firstVector, secondVector));
+        angleBetweenVectors = Vector3.Angle(firstVector, secondVector);
+        Debug.Log("Ángulo from primer vector to segundo vector: " + angleBetweenVectors);
         // Mostrar distancia entre ambos
-         Debug.Log("Distancia entre vectores: " + Vector3.Distance(firstVector, secondVector));
-         // Mostrar mensaje indicando qué vector está a mayor altura
-         if (firstVector.y > secondVector.y){
-            Debug.Log("El primer vector está a mayor altura.");
+        distanceBetweenVectors = Vector3.Distance(firstVector, secondVector);
+        Debug.Log("Distancia entre vectores: " + distanceBetweenVectors);
+        // Mostrar mensaje indicando qué vector está a mayor altura
+        if (firstVector.y > secondVector.y){
+            heightComparisonMessage = "El primer vector está a mayor altura.";
+            Debug.Log(heightComparisonMessage);
         } else if (firstVector.y < secondVector.y) {
-            Debug.Log("El segundo vector está a mayor altura.");
+            heightComparisonMessage = "El segundo vector está a mayor altura.";
+            Debug.Log(heightComparisonMessage);
         } else {
-            Debug.Log("Ambos vectores están a la misma altura.");
+            heightComparisonMessage = "Ambos vectores están a la misma altura.";
+            Debug.Log(heightComparisonMessage);
         }
     }
 }
